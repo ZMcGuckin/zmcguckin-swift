@@ -24,6 +24,7 @@ private struct SexyHTMLFactory<Site: Website>: HTMLFactory {
             .lang(context.site.language),
             .head(for: index, on: context.site),
             .body(
+                .setupAnalytics(),
                 .homePage(for: context)
             )
         )
@@ -168,13 +169,13 @@ private extension Node where Context == HTML.BodyContext {
     
     static func homePage<T: Website>(for context: PublishingContext<T>) -> Node {
         let sectionIDs = T.SectionID.allCases
-        let socials: [String: String] = [
-            "http://facebook.com/zachmcguckin":"images/fb.png",
-            "http://instagram.com/zmcguckin":"images/ig.png",
-            "http://twitter.com/zmcguckin":"images/twitter.png",
-            "http://open.spotify.com/user/zmcguckin2":"images/spotify.png",
-            "http://linkedin.com/in/zmcguckin":"images/linkedin.png",
-            "http://github.com/zmcguckin":"images/github.png"
+        let socials: [(name: String, link: String, image: String)] = [
+            (name: "facebook", link: "http://facebook.com/zachmcguckin", image: "images/fb.png"),
+            (name: "instagram", link: "http://instagram.com/zmcguckin", image: "images/ig.png"),
+            (name: "twitter", link: "http://twitter.com/zmcguckin", image: "images/twitter.png"),
+            (name: "spotify", link: "http://open.spotify.com/user/zmcguckin2", image: "images/spotify.png"),
+            (name: "linkedIn", link: "http://linkedin.com/in/zmcguckin", image: "images/linkedin.png"),
+            (name: "github", link: "http://github.com/zmcguckin", image: "images/github.png")
         ]
         return .div(
             .class("landing"),
@@ -195,10 +196,11 @@ private extension Node where Context == HTML.BodyContext {
                 .class("social-icons"),
                 .forEach(socials) { social in
                     .a(
-                        .href(social.key),
+                        .href(social.link),
                         .img(
-                            .src(social.value)
+                            .src(social.image)
                         ),
+                        .onclick("return trackClick('\(social.name)')"),
                         .target(.blank)
                     )
                 }
@@ -244,6 +246,17 @@ private extension Node where Context == HTML.BodyContext {
                     .target(.blank)
                 )
             )
+        )
+    }
+    
+    static func setupAnalytics() -> Node {
+        .group(
+            .script(.src("https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js")),
+            .script(.src("https://www.gstatic.com/firebasejs/8.2.9/firebase-analytics.js")),
+            .script(.raw("var firebaseConfig = { apiKey: \"AIzaSyBl8STlkqZaDCztHrz1vU21VnyLln3p6vE\", authDomain: \"zmcguckin-website.firebaseapp.com\", databaseURL: \"https://zmcguckin-website.firebaseio.com\", projectId: \"zmcguckin-website\", storageBucket: \"zmcguckin-website.appspot.com\", messagingSenderId: \"822202433451\", appId: \"1:822202433451:web:ddbe6c5082a1a2a5a45cee\", measurementId: \"G-L8MVTLL7XE\" };")),
+            .script(.raw("firebase.initializeApp(firebaseConfig);")),
+            .script(.raw("firebase.analytics();")),
+            .script(.raw("function trackClick(site) { firebase.analytics().logEvent(site +' clicked'); }"))
         )
     }
 }
