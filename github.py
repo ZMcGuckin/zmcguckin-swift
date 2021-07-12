@@ -2,8 +2,9 @@ import requests
 from datetime import datetime
 
 response = requests.get("https://api.github.com/users/zmcguckin/repos")
-
 data = response.json()
+response = requests.get("https://api.github.com/users/onedgeinnovation/repos")
+data += response.json()
 
 for repo in data:
     file = open("Content/projects/" + repo["name"] + ".md", "w")
