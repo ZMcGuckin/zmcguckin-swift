@@ -16,8 +16,8 @@ tags: about, extras
 
 ## Current Role 👨🏼‍💻
 
-- I'm currently an Full Stack Engineer @Root Insurance
-- In my free time I work on projects under my company @OnEdgeInnovation
+- I'm currently an Full Stack Engineer @ Root Insurance
+- In my free time I work on projects under my company @ OnEdgeInnovation
 
 ## Past Experience 🧑🏼‍🚀
 
