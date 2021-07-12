@@ -1,7 +1,7 @@
 ---
 date: 2020-05-11 23:24
 description: A 2048 game writing with SwiftUI.
-tags: projects
+tags: swift, projects
 ---
 
 # SwiftUI-2048

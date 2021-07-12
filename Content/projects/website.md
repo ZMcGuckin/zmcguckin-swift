@@ -1,7 +1,7 @@
 ---
 date: 2021-04-07 18:30
 description: Personal Portfolio Site
-tags: projects
+tags: html, projects
 ---
 
 # website

@@ -1,7 +1,7 @@
 ---
-date: 2021-07-12 04:14
+date: 2021-07-12 15:23
 description: My Personal Site written in Swift
-tags: projects
+tags: swift, projects
 ---
 
 # zmcguckin-swift

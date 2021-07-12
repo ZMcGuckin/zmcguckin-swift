@@ -1,7 +1,7 @@
 ---
 date: 2016-07-11 00:09
 description: A Java Swing Graphics created port of TicTacToe
-tags: projects
+tags: java, projects
 ---
 
 # TicTacToe

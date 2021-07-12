@@ -1,7 +1,7 @@
 ---
 date: 2016-07-11 00:41
 description: A Java Swing Graphics created port of Connect 4.
-tags: projects
+tags: java, projects
 ---
 
 # Connect4

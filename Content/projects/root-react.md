@@ -1,7 +1,7 @@
 ---
 date: 2019-08-25 16:47
 description: No description
-tags: projects
+tags: javascript, projects
 ---
 
 # root-react

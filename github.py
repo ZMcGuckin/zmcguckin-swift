@@ -13,7 +13,7 @@ for repo in data:
     clean_date = clean_date.strftime('%Y-%m-%d %H:%M')
     file.write("date: " + clean_date + "\n")
     file.write("description: " + (repo["description"] or "No description") + "\n")
-    file.write("tags: projects\n")
+    file.write("tags: " + (repo["language"].lower() + ", " if repo["language"] else "") + "projects\n")
     file.write("---\n")
     file.write("\n")
     file.write("# " + repo["name"] + "\n")
