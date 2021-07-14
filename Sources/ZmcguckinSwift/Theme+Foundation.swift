@@ -188,7 +188,8 @@ private extension Node where Context == HTML.BodyContext {
                     .a(
                         .class("gradient-text"),
                         .href(context.sections[section].path),
-                        .text(context.sections[section].title)
+                        .text(context.sections[section].title),
+                        .onclick("return trackClick('\(context.sections[section].title)')")
                     )
                 }
             ),
