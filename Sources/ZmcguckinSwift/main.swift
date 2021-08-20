@@ -5,6 +5,7 @@ import Plot
 struct ZmcguckinSwift: Website {
     enum SectionID: String, WebsiteSectionID {
         case blog
+        case apps
         case projects
         case extras
     }
@@ -28,6 +29,8 @@ extension PublishingStep where Site == ZmcguckinSwift {
 
                 switch section.id {
                 case .blog:
+                    section.title = "Blog"
+                case .apps:
                     section.title = "Blog"
                 case .projects:
                     section.title = "Projects"
