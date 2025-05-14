@@ -2,7 +2,7 @@
 //  Theme+Foundation.swift
 //  
 //
-//  Created by Zach McGuckin on 7/7/21.
+//  Created by Zach McGuckin on 7/7/21
 //
 import Publish
 import Plot
